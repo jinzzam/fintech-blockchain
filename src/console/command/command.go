@@ -1,7 +1,7 @@
 package command
 
 import (
-	"Blockchain/log"
+	"blockchain/log"
 	"bytes"
 	"encoding/hex"
 	"errors"
