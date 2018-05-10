@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
 const (
@@ -27,8 +28,20 @@ func main() {
 	C, python, java := true, false, "no!"
 	fmt.Println(x, y, z, C, python, java)
 	fmt.Println(v, w)
+
+	fmt.Println(pow(3, 3, 20), pow(3, 2, 10))
+
 }
 
 func printSlice(s string, x []int) {
 	fmt.Printf("%s %v\n", s, x)
+}
+
+func pow(x, n, lim float64) float64 {
+	if v := math.Pow(x, n); v < lim {
+		return v
+	} else {
+		fmt.Printf("%g >= %g\n", v, lim)
+	}
+	return lim
 }
