@@ -4,6 +4,11 @@ import (
 	"fmt"
 )
 
+const (
+	v = 122
+	w = v + 4
+)
+
 func main() {
 	fmt.Println("Hello World!")
 
@@ -17,6 +22,11 @@ func main() {
 	d := a[:1]
 	d = append(d)
 	printSlice("d", d)
+
+	var x, y, z int = 1, 2, 3
+	C, python, java := true, false, "no!"
+	fmt.Println(x, y, z, C, python, java)
+	fmt.Println(v, w)
 }
 
 func printSlice(s string, x []int) {
