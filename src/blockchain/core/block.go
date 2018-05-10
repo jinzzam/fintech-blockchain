@@ -15,12 +15,12 @@ type BlockBody struct {
 	Transactions []*Transaction
 }
 
-type Block struct {
+type Block struct { //블록 구조
 	Header BlockHeader
 	Body   BlockBody
 }
 
-func NewBlock(pb *Block) *Block {
+func NewBlock(pb *Block) *Block { //새로운 블록 생성
 	b := &Block{
 		Header: BlockHeader{
 			PreviousHash: Sha256.Sum256(pb.Header.ToBytes()),
@@ -34,7 +34,7 @@ func NewBlock(pb *Block) *Block {
 	return b
 }
 
-func (bh *BlockHeader) ToBytes() []byte {
+func (bh *BlockHeader) ToBytes() []byte { //블록헤더 해쉬 출력
 	res := make([]byte, 0)
 	tb := make([]byte, binary.MaxVarintLen64)
 	ib := make([]byte, binary.MaxVarintLen64)
