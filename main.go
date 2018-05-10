@@ -11,6 +11,12 @@ const ( //상수 : 문자, 문자열, boolean, 숫자 타입 중 하나
 	w = v + 4
 )
 
+type Vertex struct { //구조체 (필드(데이터)들의 조합)
+	//type선언으로 struct의 이름을 저장할 수 있음
+	X int
+	Y int
+}
+
 func main() {
 	fmt.Println("Hello World!")
 
@@ -37,6 +43,12 @@ func main() {
 		sum += i
 	}
 	fmt.Println("0~10 sum : ", sum)
+
+	p := Vertex{1, 2}
+	q := &p
+	q.X = 19
+	q.Y = 11
+	fmt.Println("구조체를 써보자 : ", p)
 }
 
 func printSlice(s string, x []int) {
