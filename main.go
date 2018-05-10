@@ -11,10 +11,23 @@ const ( //상수 : 문자, 문자열, boolean, 숫자 타입 중 하나
 	w = v + 4
 )
 
-type Vertex struct { //구조체 (필드(데이터)들의 조합)
+type Vertex1 struct { //구조체 (필드(데이터)들의 조합)
 	//type선언으로 struct의 이름을 저장할 수 있음
 	X int
 	Y int
+}
+
+type Vertex struct {
+	X, Y float64
+}
+
+func (v *Vertex) Scale(f float64) { //(v *Vertex) -> '메소드 리시버' func키워드와 메소드의 이름 사이에 인자로 들어감
+	v.X = v.X * f
+	v.Y = v.Y * f
+}
+
+func (v *Vertex) Abs() float64 { //메소드 리시버를 사용하는 이유: 메소드가 호출될 때 마다 값이 복사되는 것을 방지,메소드에서 리시버 포인터가 가리키는 값을 수정하기 위함
+	return math.Sqrt(v.X*v.X + v.Y*v.Y)
 }
 
 func main() {
@@ -44,11 +57,15 @@ func main() {
 	}
 	fmt.Println("0~10 sum : ", sum)
 
-	p := Vertex{1, 2}
+	p := Vertex1{1, 2}
 	q := &p
 	q.X = 19
 	q.Y = 11
 	fmt.Println("구조체를 써보자 : ", p)
+
+	v := &Vertex{3, 4}
+	v.Scale(5)
+	fmt.Println(v, v.Abs())
 }
 
 func printSlice(s string, x []int) {
