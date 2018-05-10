@@ -23,7 +23,7 @@ type Block struct { //블록 구조
 func NewBlock(pb *Block) *Block { //새로운 블록 생성
 	b := &Block{
 		Header: BlockHeader{
-			PreviousHash: Sha256.Sum256(pb.Header.ToBytes()),
+			PreviousHash: sha256.Sum256(pb.Header.ToBytes()),
 			Timestamp:    time.Now().UnixNano(),
 			Index:        pb.Header.Index + 1,
 		},

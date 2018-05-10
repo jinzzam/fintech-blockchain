@@ -23,7 +23,7 @@ func NewBlockChain() *BlockChain {//블록체인 생성
 func newGenesisBlock() *Block{ //제네시스 블록 생성
   b := &Block{
     Header: BlockHeader{
-      PreviousHash: Sha256.Sum256([]byte{}),
+      PreviousHash: sha256.Sum256([]byte{}),
       Timestamp : time.Now().UnixNano(),
       Index : 0,
     },
@@ -40,5 +40,6 @@ func (bc *Blockchain) AddBlock() error{//후보 블록 생성
 }
 
 func AppendBlockchain(bc *Blockchain)  {  //블록체인 발견 시 추가
-
+  GlobalBlockChain = append(GlobalBlockChain, bc)
+  return nil
 }
