@@ -1,9 +1,9 @@
-/*package execute
+package execute
 
 import (
-	"Blockchain/console/command"
-	"Blockchain/core"
-	"Blockchain/log"
+	"blockchain/console/command"
+	"blockchain/core"
+	"blockchain/log"
 	"bytes"
 	"fmt"
 	"strconv"
@@ -102,4 +102,4 @@ func transactionsString(b *core.Block, name string) string {
 
 	res = res + buffer.String()
 	return res
-}*/
+}

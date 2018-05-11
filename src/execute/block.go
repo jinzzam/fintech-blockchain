@@ -134,7 +134,7 @@ func AttachCandidateBlockToBlockchain(bcidx uint64) error {
 	if err != nil {
 		return err
 	}
-	pow.Mining(bc.CandidateBlock)
+	//pow.Mining(bc.CandidateBlock)
 
 	_ = bc.AddBlock()
 	log.Info(perforatedLine)
@@ -145,26 +145,7 @@ func AttachCandidateBlockToBlockchain(bcidx uint64) error {
 func blockStringInfo(b *core.Block, title string) string {
 	buffer := bytes.NewBuffer([]byte{})
 	if b != nil {
-		ph := ""
-		for _, v := range b.Header.PreviousHash {
-			ph += fmt.Sprintf("%02x", v)
-		}
-
-		fmt.Fprintf(buffer, "PreviousHash     %v\n", ph)
-		fmt.Fprintf(buffer, "Timestamp        %v\n", b.Header.Timestamp)
-		fmt.Fprintf(buffer, "Index            %v\n", b.Header.Index)
-		//fmt.Fprintf(buffer, "Transactions     %v\n", len(b.Body.Transactions))
-		fmt.Fprintf(buffer, "%v", transactionsString(b, ""))
-	}
-
-	res := title + "\n" + buffer.String()
-	return res
-}
-
-/*func blockStringInfo(b *core.Block, title string) string {
-	buffer := bytes.NewBuffer([]byte{})
-	if b != nil {
-		var ph, mh  string
+		var ph, mh string
 		for _, v := range []struct {
 			str  *string
 			hash [32]byte

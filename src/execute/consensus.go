@@ -1,10 +1,10 @@
-/*package execute
+package execute
 
-import (
-	"Blockchain/console/command"
-	"Blockchain/core"
-	"Blockchain/log"
-	"Blockchain/consensus"
+/*import (
+	"blockchain/consensus"
+	"blockchain/console/command"
+	"blockchain/core"
+	"blockchain/log"
 )
 
 func ConsensusCommands() {
