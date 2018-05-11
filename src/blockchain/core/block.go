@@ -1,6 +1,7 @@
 package core
 
 import (
+	"crypto/sha256"
 	"encoding/binary"
 	"time"
 )
@@ -40,8 +41,8 @@ func (bh *BlockHeader) ToBytes() []byte { //블록헤더 해쉬 출력
 	ib := make([]byte, binary.MaxVarintLen64)
 	binary.PutVarint(tb, bh.Timestamp)
 	binary.PutUvarint(ib, bh.Index)
-	for -,b := range [][]byte(bh.PreviousHash[:], tb, ib) {
+	for _, b := range [][]byte(bh.PreviousHash[:], tb, ib) {
 		res = append(res, b...)
 	}
-  return res
+	return res
 }
