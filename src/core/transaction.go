@@ -13,7 +13,7 @@ func (a Address) ToString() string {
 	res := "0x"
 	for _, v := range a {
 		res += fmt.Sprintf("%02x", v)
-	}
+	} //트랜잭션 출력
 
 	return res
 }
